@@ -143,7 +143,7 @@ def process_numbers(numbers: List[float]) -> dict:
         "max": max(numbers)
     }
 
-
+# def
 # This function intentionally has some code smells for SonarQube to detect
 def problematic_function(data):
     """A function with intentional code issues for SonarQube analysis."""
