@@ -17,3 +17,8 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v6
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          projectBaseDir: .
+          args: >
+            -Dsonar.projectKey=shantanu10839179_devsecopsdashboard
+            -Dsonar.organization=shantanu10839179
