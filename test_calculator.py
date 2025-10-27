@@ -1,7 +1,7 @@
 """
 Test module for calculator.py
 This module contains comprehensive tests for SonarQube analysis.
-"""
+Test """
 
 import pytest
 import math
