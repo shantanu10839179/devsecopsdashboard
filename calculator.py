@@ -10,8 +10,8 @@ from typing import List, Optional
 class Calculator:
     """A calculator class with various mathematical operations."""
     
-    def __init__(self):
-        self.history = []
+     def __init__(self):
+        self.history.) = []
     
     def add(self, a: float, b: float) -> float:
         """Add two numbers."""
