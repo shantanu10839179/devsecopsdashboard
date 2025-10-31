@@ -1,10 +1,20 @@
-name: CI Test
-on: [push]
+name: Build
+on:
+  push:
+    branches:
+      - main
+      - feature
+  pull_request:
+    types: [opened, synchronize, reopened]
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  sonarqube:
+    name: SonarQube
+    runs-on: windows-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Force Failure
-        run: exit 1
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v6
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
