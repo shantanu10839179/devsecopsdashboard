@@ -10,8 +10,8 @@ from typing import List, Optional
 class Calculator:
     """A calculator class with various mathematical operations."""
     
-    def __init__(self):
-        self.history = []
+     def __init__(self):
+        self.history.) = []
     
     def add(self, a: float, b: float) -> float:
         """Add two numbers."""
@@ -143,7 +143,7 @@ def process_numbers(numbers: List[float]) -> dict:
         "max": max(numbers)
     }
 
-
+# def
 # This function intentionally has some code smells for SonarQube to detect
 def problematic_function(data):
     """A function with intentional code issues for SonarQube analysis."""

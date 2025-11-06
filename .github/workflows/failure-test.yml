@@ -1,0 +1,54 @@
+name: CI Failure Test
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # # 1. Force Failure
+      # - name: Force Failure
+      #   run: exit 1
+
+      # 2. Syntax Error in Python
+      - name: Run Python with Syntax Error
+        run: |
+          echo 'print("Hello"' > test.py
+          python3 test.py
+
+      # 3. Missing Dependency
+      - name: Install Missing Dependency
+        run: |
+          echo 'requests==2.28.1' > requirements.txt
+          pip install -r requirements.txt
+          pip install nonexistent-package  # This will fail
+
+      # 4. Test Failure
+      - name: Run Pytest with Failing Test
+        run: |
+          echo 'def test_fail(): assert False' > test_fail.py
+          pytest test_fail.py
+
+      # 5. Linting Error
+      - name: Lint Code
+        run: |
+          pip install flake8
+          echo 'x=1' > lint.py
+          flake8 lint.py --max-line-length=10  # Will fail
+
+      # 6. Missing ENV Variable
+      - name: Use Missing ENV
+        run: echo $MISSING_ENV
+
+      # 7. Network/API Failure
+      - name: API Call Failure
+        run: curl -f https://invalid-url.com
+
+      # 8. Permission Denied
+      - name: Write to Restricted Directory
+        run: echo "test" > /root/test.txt

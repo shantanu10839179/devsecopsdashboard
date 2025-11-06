@@ -19,7 +19,6 @@ class User:
     created_at: datetime
     is_active: bool = True
 
-
 class DataProcessor:
     """Data processing utility class."""
     
