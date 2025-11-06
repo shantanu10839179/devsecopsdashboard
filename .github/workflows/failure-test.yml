@@ -11,9 +11,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # 1. Force Failure
-      - name: Force Failure
-        run: exit 1
+      # # 1. Force Failure
+      # - name: Force Failure
+      #   run: exit 1
 
       # 2. Syntax Error in Python
       - name: Run Python with Syntax Error
